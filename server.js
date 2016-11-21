@@ -24,10 +24,11 @@ app.get('/', function(request, response) {
 });
 
 app.get('/api/tags', function(req, res) {
+  var page = Math.floor(Math.random() * 10) + 1
   request({
     uri: 'https://api.stackshare.io/v1/stacks/tags',
     qs: {
-      page: '1',
+      page: page,
       access_token: '4eade3c673accff18c0711059312d3b8',
     }
   }).pipe(res);
