@@ -1,6 +1,7 @@
 var path = require('path');
 var express = require('express');
 var request = require('request');
+var rp = require('request-promise');
 var app = express();
 var PORT = process.env.PORT || 8080
 
@@ -22,7 +23,7 @@ app.get('/', function(request, response) {
   response.sendFile(__dirname + '/dist/index.html')
 });
 
-app.get('/tags', function(req, res) {
+app.get('/api/tags', function(req, res) {
   request({
     uri: 'https://api.stackshare.io/v1/stacks/tags',
     qs: {
@@ -30,6 +31,17 @@ app.get('/tags', function(req, res) {
       access_token: '4eade3c673accff18c0711059312d3b8',
     }
   }).pipe(res);
+});
+
+app.get('/api/tags/:tag/tools', function (req, res) {
+   var tag = req.params.tag;
+   request({
+     uri: 'https://api.stackshare.io/v1/stacks/lookup',
+     qs: {
+       tag_id: tag,
+       access_token: '4eade3c673accff18c0711059312d3b8'
+     }
+   }).pipe(res)
 });
 
 app.listen(PORT, function(error) {
