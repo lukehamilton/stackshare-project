@@ -24,4 +24,4 @@
 - Add loading / progress placeholders when loading content into the DOM.
 
 
-![Alt Text](https://dl.dropboxusercontent.com/content_link/tRWPCMT2NeDe0vudtnAtMeu2uLR3baXPW7IzMu6Tqv1tgeJoaNXFCX87tXqub9jm/file)
+![Alt Text](https://www.dropbox.com/s/a9ehurktltexe6b/stackshare-remove-tool.gif?raw=1)
